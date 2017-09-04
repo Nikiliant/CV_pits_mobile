@@ -1,0 +1,39 @@
+<changelist name="unnamed" date="1504378903851" recycled="false">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/unnamed/shelved.patch" />
+  <option name="DESCRIPTION" value="" />
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/3.3/taskArtifacts/fileHashes.bin" />
+    <option name="AFTER_PATH" value=".gradle/3.3/taskArtifacts/fileHashes.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/unnamed/fileHashes.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+    <option name="AFTER_PATH" value=".gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/unnamed/localClassSetAnalysis.lock" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <option name="AFTER_PATH" value=".gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/unnamed/localJarClasspathSnapshot.lock" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/3.3/taskArtifacts/taskArtifacts.bin" />
+    <option name="AFTER_PATH" value=".gradle/3.3/taskArtifacts/taskArtifacts.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/unnamed/taskArtifacts.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/3.3/taskArtifacts/taskArtifacts.lock" />
+    <option name="AFTER_PATH" value=".gradle/3.3/taskArtifacts/taskArtifacts.lock" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/unnamed/taskArtifacts.lock" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+    <option name="AFTER_PATH" value=".gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/unnamed/localClassSetAnalysis.bin" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".gradle/3.3/taskArtifacts/fileSnapshots.bin" />
+    <option name="AFTER_PATH" value=".gradle/3.3/taskArtifacts/fileSnapshots.bin" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/unnamed/fileSnapshots.bin" />
+  </binary>
+</changelist>
