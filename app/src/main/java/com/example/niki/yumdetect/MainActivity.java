@@ -87,27 +87,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public Bitmap getHistroImage() {
-        return histroImage;
-    }
-
-    public void setHistroImage(Bitmap histroImage) {
-        this.histroImage = histroImage;
-    }
-
-    public LinearLayout getHistoImageView() {
-        return histoImageView;
-    }
-
-    public void onclick (View view) {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, mUri);
-        startActivityForResult(intent, PHOTO_INTENT_REQUEST_CODE);
-
-    }
-
     @Override
-
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_RESULT){
             Bitmap thumbnailBitmap = (Bitmap) data.getExtras().get("data");
