@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, mUri);
-                startActivityForResult(intent, PHOTO_INTENT_REQUEST_CODE);
+                startActivityForResult(intent, CAMERA_RESULT);
 
             }
         });
@@ -86,6 +86,11 @@ public class MainActivity extends AppCompatActivity {
         //tv.setText(stringFromJNI());
     }
 
+
+    public void workwithmimageview (Bitmap Image, int requestCode, Intent data) {
+        
+
+    }
 
     @Override
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
