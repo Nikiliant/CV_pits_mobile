@@ -3,12 +3,17 @@ package com.example.niki.yumdetect;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
+import android.graphics.*;
+import android.hardware.camera2.CameraDevice;
+import android.hardware.camera2.CameraManager;
 import android.media.Image;
+import android.media.tv.TvContract;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.service.media.CameraPrewarmService;
+import android.view.*;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,9 +21,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import java.io.IOException;
 import android.app.Activity;
 import android.app.Dialog;
@@ -28,12 +31,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Paint.Style;
-import android.graphics.Path;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -51,36 +49,14 @@ import java.io.File;
 public class MainActivity extends AppCompatActivity {
 
     Uri mUri;
-    Bitmap mainImage;
-    Bitmap histroImage;
-
-    ImageView mainImageView;
-    LinearLayout histoImageView;
-    Bitmap bi = null;
-    boolean isColored;
 
     LinearLayout view;
     LinearLayout view_color;
+    TvContract.PreviewPrograms imagefromscreen;
 
-    boolean flag;
-    private int SIZE = 256;
-    private int NUMBER_OF_COLOURS = 3;
 
-    public final int RED = 0;
-    public final int GREEN = 1;
-    public final int BLUE = 2;
-
-    private int[][] colourBins;
-    private volatile boolean loaded = false;
-    private int maxY;
-
-    private static final int LDPI = 0;
-    private static final int MDPI = 1;
-    private static final int TVDPI = 2;
-    private static final int HDPI = 3;
-    private static final int XHDPI = 4;
-
-    float offset = 1;
+    private final int CAMERA_RESULT = 0;
+    private ImageView mImageView;
 
 
     private static final int PHOTO_INTENT_REQUEST_CODE=100;
@@ -91,15 +67,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_main);
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener(){
             public void onClick (View v) {
 
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, mUri);
+                startActivityForResult(intent, PHOTO_INTENT_REQUEST_CODE);
 
-                setHistroImage();
             }
         });
 
@@ -126,6 +104,15 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(MediaStore.EXTRA_OUTPUT, mUri);
         startActivityForResult(intent, PHOTO_INTENT_REQUEST_CODE);
 
+    }
+
+    @Override
+
+    protected void onActivityResult (int requestCode, int resultCode, Intent data) {
+        if (requestCode == CAMERA_RESULT){
+            Bitmap thumbnailBitmap = (Bitmap) data.getExtras().get("data");
+            mImageView.setImageBitmap(thumbnailBitmap);
+        }
     }
 
     @Override
@@ -182,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
         return BitmapFactory.decodeResource(res, resId,  options);
 
     }
+
 
 
     /**
